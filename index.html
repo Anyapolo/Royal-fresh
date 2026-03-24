@@ -148,41 +148,36 @@
   .who-strip {
     background: var(--accent-green);
     color: var(--accent-yellow);
-    padding: 16px var(--pad);
+    padding: 16px 0;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 8px;
-    overflow: hidden;
   }
-  .who-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(234,236,135,0.65);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .who-items {
+  .who-track {
     display: flex;
-    flex: 1;
-    overflow: hidden;
+    align-items: center;
+    gap: 0;
+    animation: marquee 18s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+  }
+  .who-strip:hover .who-track { animation-play-state: paused; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
   .who-item {
-    flex: 1;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--accent-yellow);
-    text-align: center;
-    padding: 0 6px;
-    border-right: 1px solid rgba(234,236,135,0.3);
+    padding: 0 20px;
     white-space: nowrap;
     line-height: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
-  .who-item:last-child { border-right: none; }
+  .who-sep {
+    color: rgba(234,236,135,0.4);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
 
   /* ─── SHARED ─── */
   .btn-primary {
@@ -817,11 +812,15 @@
   </section>
 
   <div class="who-strip">
-    <span class="who-label">Работаем с</span>
-    <div class="who-items">
-      <span class="who-item">Декораторами</span>
-      <span class="who-item">Фуд-стилистами</span>
-      <span class="who-item">Ивент-агентствами</span>
+    <div class="who-track">
+      <span class="who-item">Декораторами</span><span class="who-sep">·</span>
+      <span class="who-item">Фуд-стилистами</span><span class="who-sep">·</span>
+      <span class="who-item">Ивент-агентствами</span><span class="who-sep">·</span>
+      <span class="who-item">Работаем с</span><span class="who-sep">·</span>
+      <span class="who-item">Декораторами</span><span class="who-sep">·</span>
+      <span class="who-item">Фуд-стилистами</span><span class="who-sep">·</span>
+      <span class="who-item">Ивент-агентствами</span><span class="who-sep">·</span>
+      <span class="who-item">Работаем с</span><span class="who-sep">·</span>
     </div>
   </div>
 </div>
