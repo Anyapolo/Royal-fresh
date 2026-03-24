@@ -148,18 +148,18 @@
   .who-strip {
     background: var(--accent-green);
     color: var(--accent-yellow);
-    padding: 14px var(--pad);
+    padding: 16px var(--pad);
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
-    padding: 22px var(--pad); /* was 14px */
+    gap: 8px;
+    overflow: hidden;
   }
   .who-label {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 400;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(234,236,135,0.65);
     white-space: nowrap;
@@ -168,16 +168,19 @@
   .who-items {
     display: flex;
     flex: 1;
+    overflow: hidden;
   }
   .who-item {
     flex: 1;
-    font-size: 14px;
+    font-size: 11px;
     color: var(--accent-yellow);
     text-align: center;
-    padding: 0 8px;
+    padding: 0 6px;
     border-right: 1px solid rgba(234,236,135,0.3);
     white-space: nowrap;
     line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .who-item:last-child { border-right: none; }
 
