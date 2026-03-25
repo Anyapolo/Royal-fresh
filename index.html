@@ -95,23 +95,13 @@
     justify-content: center;
     overflow: hidden;
   }
-  .hero-photo-placeholder {
+  .hero-video {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, #2a2a2a 0%, #4a4a4a 40%, #1a1a1a 100%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 28px;
-  }
-  .hero-photo-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 8px 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   .hero-overlay {
     position: relative;
@@ -793,9 +783,9 @@
 <!-- ─── HERO ─── -->
 <div class="hero-wrapper">
   <section class="hero">
-    <div class="hero-photo-placeholder">
-      <span class="hero-photo-label">Фото / Видео — фоновое изображение</span>
-    </div>
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/hero-video.mp4" type="video/mp4">
+    </video>
     <nav>
       <a href="#" class="nav-logo">Royal Fresh Events</a>
       <ul class="nav-links">
