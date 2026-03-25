@@ -103,6 +103,12 @@
     object-fit: cover;
     object-position: center;
   }
+  .hero-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
   .hero-overlay {
     position: relative;
     z-index: 2;
@@ -786,6 +792,7 @@
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="images/hero-video.mp4" type="video/mp4">
     </video>
+    <div class="hero-overlay-dark"></div>
     <nav>
       <a href="#" class="nav-logo">Royal Fresh Events</a>
       <ul class="nav-links">
