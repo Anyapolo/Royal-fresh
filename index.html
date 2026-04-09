@@ -27,6 +27,7 @@
     --grey-light: #d8d7c2;
     --grey-mid: rgba(8,15,15,0.35);
     --grey-dark: rgba(8,15,15,0.55);
+    --text-body: #60645c;
   }
 
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -47,7 +48,7 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -195,7 +196,6 @@
   .nav-cta { transition: background 0.2s, color 0.2s, border-color 0.2s; }
   .nav-cta:hover { background: var(--accent-green); color: var(--bg); border-color: var(--accent-green); }
   .interstitial-btn { transition: background 0.2s, color 0.2s; }
-  .interstitial-btn:hover { background: var(--accent-green); color: var(--bg); }
   .section-num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
@@ -255,9 +255,9 @@
   }
   .inspo-col-title em { font-style: italic; color: var(--grey-dark); }
   .inspo-col-desc {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.75;
-    color: var(--grey-dark);
+    color: var(--text-body);
     margin-bottom: 24px;
   }
  
@@ -271,60 +271,126 @@
     text-align: center;
   }
 
+  /* ─── FRUIT WHY ─── */
+  .fruit-why {
+    padding: 36px var(--pad) 40px;
+  }
+  .fruit-why-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 7vw, 44px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 0.1em;
+  }
+  .fruit-why-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 4vw, 26px);
+    color: var(--grey-dark);
+    margin-bottom: 2.5rem;
+    line-height: 1.3;
+  }
+  .fruit-why-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem 0;
+  }
+  .fruit-why-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: var(--grey-light);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+  }
+  .fruit-why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 5vw, 22px);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .fruit-why-body {
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.7;
+    margin: 0;
+  }
+
   /* ─── INTERSTITIAL CTA ─── */
   .interstitial-cta {
-    background: var(--accent-yellow);
-    color: var(--text);
-    padding: 24px var(--pad);
+    position: relative;
+    overflow: hidden;
+    border-bottom: var(--border);
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .interstitial-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+  .interstitial-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0.25) 100%);
+  }
+  .interstitial-inner {
+    position: relative;
+    z-index: 2;
+    padding: 32px var(--pad);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-bottom: var(--border);
-    position: relative;
-    overflow: hidden;
+    width: 100%;
   }
-  .interstitial-deco {
-    position: absolute;
-    width: 220px;
-    opacity: 0.13;
-    pointer-events: none;
-  }
-  .interstitial-deco--1 { top: -40px; right: 5%; transform: rotate(10deg); }
-  .interstitial-deco--2 { bottom: -40px; right: 30%; transform: rotate(-15deg); }
   .interstitial-left {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
   }
   .interstitial-cta .inspo-col-title {
-    color: var(--text);
+    color: #ffffff;
     margin-bottom: 0;
   }
   .interstitial-cta .inspo-col-title em {
-    color: var(--grey-dark);
+    color: rgba(255,255,255,0.7);
   }
   .interstitial-text {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.7;
-    color: var(--grey-dark);
+    color: rgba(255,255,255,0.85);
   }
   .interstitial-btn {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    padding: 12px 24px;
-    background: var(--text);
+    padding: 14px 28px;
+    background: var(--accent-yellow);
     border: none;
-    color: var(--bg);
+    color: var(--text);
     cursor: pointer;
     width: fit-content;
   }
+  .interstitial-btn:hover { background: #fff; color: var(--text); }
   @media (min-width: 640px) {
-    .interstitial-cta {
+    .interstitial-cta { min-height: 380px; max-height: 480px; height: 480px; }
+    .interstitial-inner {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
     }
     .interstitial-left { max-width: 560px; }
@@ -340,8 +406,8 @@
   }
   .catalog-meta {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 13px;
-    color: var(--grey-dark);
+    font-size: 15px;
+    color: var(--text-body);
     margin-top: 4px;
     padding-bottom: 20px;
     line-height: 1.6;
@@ -395,7 +461,7 @@
     gap: 16px;
     background: var(--accent-yellow);
   }
-  .catalog-footer p { font-size: 13px; color: var(--grey-dark); line-height: 1.6; }
+  .catalog-footer p { font-size: 15px; color: var(--text-body); line-height: 1.6; }
   .catalog-footer .inspo-col-title { margin-bottom: 0; }
   .catalog-footer-sub { font-size: 12px; color: var(--grey-dark); line-height: 1.6; margin-top: 4px; }
   .catalog-footer-title {
@@ -434,7 +500,7 @@
     margin-bottom: 8px;
   }
   .trend-item-title { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 6px; }
-  .trend-item-desc { font-size: 13px; line-height: 1.7; color: var(--grey-dark); }
+  .trend-item-desc { font-size: 15px; line-height: 1.7; color: var(--text-body); }
 
   /* ─── FRESHNESS ─── */
   .freshness-section { border-bottom: var(--border); }
@@ -482,7 +548,7 @@
     flex-shrink: 0;
   }
   .f-text strong { display: block; font-size: 13px; font-weight: 500; margin-bottom: 3px; }
-  .f-text span { font-size: 12px; color: var(--grey-dark); line-height: 1.6; }
+  .f-text span { font-size: 15px; color: var(--text-body); line-height: 1.6; }
 
   /* ─── PROCESS ─── */
   .process-section { border-bottom: var(--border); background: var(--bg); }
@@ -532,7 +598,7 @@
     font-weight: 400;
     line-height: 1.2;
   }
-  .step-desc { font-size: 13px; line-height: 1.7; color: var(--grey-dark); }
+  .step-desc { font-size: 15px; line-height: 1.7; color: var(--text-body); }
   .process-footer {
     padding: 24px var(--pad);
     border-top: var(--border-light);
@@ -599,7 +665,7 @@
     margin-bottom: 20px;
   }
   .about-headline em { font-style: italic; color: var(--grey-dark); }
-  .about-body { font-size: 13px; line-height: 1.8; color: var(--grey-dark); }
+  .about-body { font-size: 15px; line-height: 1.8; color: var(--text-body); }
   .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
   .stat { padding: 24px 16px; border-right: var(--border); }
   .stat:last-child { border-right: none; }
@@ -728,6 +794,26 @@
 .who-label {
   font-size: 14px;
 }
+    /* Fruit why: single row on desktop */
+    .fruit-why-items-row {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+    }
+    .fruit-why-item {
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border-top: none;
+      border-right: var(--border-light);
+      gap: 14px;
+    }
+    .fruit-why-item:last-child {
+      border-right: none;
+    }
+
     /* Process: horizontal 4-column on desktop */
     .process-steps { flex-direction: row; }
     .process-step {
@@ -824,42 +910,50 @@
 
 <!-- ─── INSPIRATION ─── -->
 <section class="inspiration-section">
-  <div class="inspiration-header">
-    <h2 class="section-heading">Продукт от производителя без посредников</h2>
-  </div>
+  <div class="fruit-why">
+    <h2 class="fruit-why-heading">Будь в соке событий</h2>
+    <p class="fruit-why-sub">Фрукты и овощи как декор-материал —</p>
 
-  <div class="inspo-cols">
-    <div class="inspo-col">
-      <div class="inspo-col-tag">Для декора</div>
-      <h3 class="inspo-col-title">Изобилие<br><em>как эстетика</em></h3>
-      <p class="inspo-col-desc">Центрпис, раннер, каскадные гроздья. Визуально - как цветы. По цене - выгоднее. По функции - богаче.</p>
-      <div class="inspo-collage">
-        <img class="inspo-single-img" src="images/Eat.jpg" alt="Изобилие для декора" loading="lazy" decoding="async">
+  <div class="fruit-why-items-row">
+    <div class="fruit-why-item">
+      <div class="fruit-why-icon">🍊</div>
+      <div>
+        <p class="fruit-why-title">Это эффектно</p>
+        <p class="fruit-why-body">Природная палитра и живая текстура. Декор, который говорит сам за себя.</p>
       </div>
     </div>
 
-    <div class="inspo-col">
-      <div class="inspo-col-tag">Для фуд-стилинга</div>
-      <h3 class="inspo-col-title">Съедобная<br><em>фактура</em></h3>
-      <p class="inspo-col-desc">Текстура, цвет и объем в кадре. Используем фрукты как выразительный визуальный материал для съемок и сервировки.</p>
-      <div class="inspo-collage">
-        <img class="inspo-single-img" src="images/abundance.jpg" alt="Фуд-стилистика с фруктами" loading="lazy" decoding="async">
+    <div class="fruit-why-item">
+      <div class="fruit-why-icon">🍋</div>
+      <div>
+        <p class="fruit-why-title">Это съедобно</p>
+        <p class="fruit-why-body">Гости не просто смотрят — они пробуют. Новый язык гостеприимства.</p>
+      </div>
+    </div>
+
+    <div class="fruit-why-item">
+      <div class="fruit-why-icon">🥝</div>
+      <div>
+        <p class="fruit-why-title">Это безотходно</p>
+        <p class="fruit-why-body">После праздника фрукты уходят с гостями. Никаких увядших цветов.</p>
       </div>
     </div>
   </div>
-
+  </div>
 
 </section>
 
 <!-- ─── INTERSTITIAL CTA ─── -->
 <div class="interstitial-cta">
-  <img class="interstitial-deco interstitial-deco--1" src="images/lemons-sketch.png" alt="">
-  <img class="interstitial-deco interstitial-deco--2" src="images/lemons-sketch.png" alt="">
-  <div class="interstitial-left">
-    <h3 class="inspo-col-title">Есть задумка?</h3>
-    <p class="interstitial-text">Поможем выбрать и рассчитать товары под каждый проект. Ответ в течение 30–60 мин в рабочее время.</p>
+  <img class="interstitial-bg" src="images/abundance2.jpg" alt="">
+  <div class="interstitial-overlay"></div>
+  <div class="interstitial-inner">
+    <div class="interstitial-left">
+      <h3 class="inspo-col-title">Есть задумка?</h3>
+      <p class="interstitial-text">Поможем выбрать и рассчитать товары под каждый проект.</p>
+    </div>
+    <button class="interstitial-btn">Написать нам</button>
   </div>
-  <button class="interstitial-btn">Написать нам</button>
 </div>
 
 <!-- ─── CATALOG ─── -->
@@ -1149,7 +1243,7 @@
   .contact-headline em { font-style: italic; color: var(--grey-dark); }
   .contact-sub {
     font-size: 12px;
-    color: var(--grey-dark);
+    color: var(--text);
     line-height: 1.6;
     margin-bottom: 28px;
   }
